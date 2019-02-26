@@ -31,5 +31,9 @@ module.exports = {
       ReactDOM: "react-dom"
     }),
     new CleanWebpackPlugin(path.resolve("dist"), { root: path.resolve("../") })
-  ]
+  ],
+
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
 };
