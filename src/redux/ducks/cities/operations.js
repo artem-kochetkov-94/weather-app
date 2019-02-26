@@ -1,10 +1,10 @@
 import * as actions from "./actions";
 
-export const getCityWeather = id => dispatch => {
-  dispatch(actions.getCityWeatherRequest(id));
+export const getCityWeather = (city, date) => dispatch => {
+  dispatch(actions.getCityWeatherRequest());
 
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=28eeeb2e3db34c6fcd69a3fe631c21a4`
+    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=28eeeb2e3db34c6fcd69a3fe631c21a4`
   )
     .then(response => response.json())
     .then(data => {

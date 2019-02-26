@@ -1,9 +1,10 @@
+import DatePickerWeather from "../../containers/DatePickerWeather";
 import "./style.scss";
 
 export default function Header() {
   return (
     <header className="header">
-      <h1>header</h1>
+      <DatePickerWeather />
     </header>
   );
 }

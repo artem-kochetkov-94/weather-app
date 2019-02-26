@@ -5,7 +5,7 @@ const initialState = {
   byIds: {
     "0": {
       id: "0",
-      title: "city 0"
+      title: "Berlin"
     },
     "1": {
       id: "1",

@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import City from "../components/City";
+import DatePickerWeather from "../components/DatePickerWeather";
 import { citiesSelectors, citiesOperations } from "../redux/ducks/cities";
 
 const mapStateToProps = state => {
   return {
-    cities: state.cities
+    city: citiesSelectors.getCityById(state.cities, state.cities.active.id)
   };
 };
 
@@ -13,15 +13,7 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(citiesOperations, dispatch);
 };
 
-class CityContainer extends React.PureComponent {
-  render() {
-    const { cities, id, getCityWeather } = this.props;
-    const city = citiesSelectors.getCityById(cities, id);
-    return <City {...city} getCityWeather={() => getCityWeather(city.title)} />;
-  }
-}
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CityContainer);
+)(DatePickerWeather);
