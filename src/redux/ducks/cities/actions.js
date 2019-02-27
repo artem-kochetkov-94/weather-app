@@ -1,7 +1,8 @@
 import * as types from "./types";
 
-export const getCityWeatherRequest = () => ({
-  type: types.FETCH_CITY_WEATHER_REQUEST
+export const getCityWeatherRequest = id => ({
+  type: types.FETCH_CITY_WEATHER_REQUEST,
+  payload: { id }
 });
 
 export const getCityWeatherSuccess = weather => ({

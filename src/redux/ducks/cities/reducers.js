@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import * as types from "./types";
 
 const initialState = {
   allIds: ["0", "1", "2", "3", "4", "5"],
@@ -9,28 +10,29 @@ const initialState = {
     },
     "1": {
       id: "1",
-      title: "city 1"
+      title: "Moscow"
     },
     "2": {
       id: "2",
-      title: "city 2"
+      title: "Orenburg"
     },
     "3": {
       id: "3",
-      title: "city 3"
+      title: "London"
     },
     "4": {
       id: "4",
-      title: "city 4"
+      title: "Kazan"
     },
     "5": {
       id: "5",
-      title: "city 5"
+      title: "Omsk"
     }
   },
   active: {
-    id: "0",
-    weather: {}
+    id: null,
+    weather: null,
+    isFetching: false
   }
 };
 
@@ -50,6 +52,23 @@ const byIds = (state = initialState.byIds, action) => {
 
 const active = (state = initialState.active, action) => {
   switch (action.type) {
+    case types.FETCH_CITY_WEATHER_REQUEST:
+      return {
+        ...state,
+        id: action.payload.id,
+        isFetching: true
+      };
+    case types.FETCH_CITY_WEATHER_SUCCESS:
+      return {
+        ...state,
+        weather: action.payload.weather,
+        isFetching: false
+      };
+    case types.FETCH_CITY_WEATHER_FAILURE:
+      return {
+        ...state,
+        isFetching: false
+      };
     default:
       return state;
   }

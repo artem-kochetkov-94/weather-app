@@ -1,9 +1,10 @@
 import "./style.scss";
+import Weather from "../../containers/Weather";
 
 export default function MainContent() {
   return (
     <div className="content">
-      <h1>MainContent</h1>
+      <Weather />
     </div>
   );
 }

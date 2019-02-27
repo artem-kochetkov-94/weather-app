@@ -17,7 +17,7 @@ class CityContainer extends React.PureComponent {
   render() {
     const { cities, id, getCityWeather } = this.props;
     const city = citiesSelectors.getCityById(cities, id);
-    return <City {...city} getCityWeather={() => getCityWeather(city.title)} />;
+    return <City {...city} getCityWeather={() => getCityWeather(id)} />;
   }
 }
 
