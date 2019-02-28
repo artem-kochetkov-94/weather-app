@@ -4,10 +4,7 @@ import Weather from "../components/Weather";
 import kelvinToCelsium from "../utils/kelvin-to-celsius";
 
 const mapStateToProps = state => {
-  if (
-    state.cities.active.isFetching &&
-    state.cities.active.weather === null
-  ) {
+  if (state.cities.active.isFetching && state.cities.active.weather === null) {
     return {
       isFetching: citiesSelectors.fetchWeatherStatus(state.cities)
     };

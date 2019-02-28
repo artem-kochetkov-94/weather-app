@@ -1,10 +1,13 @@
 import Cities from "../Cities";
+import Accordion from "../../decorators/Accordion";
 
-export default function Country({ title, cities }) {
+const Country = ({ title, cities, isOpen, toggleOpen }) => {
   return (
     <li className="country">
-      <span>{title}</span>
-      {cities && <Cities items={cities} />}
+      <span onClick={toggleOpen}>{title}</span>
+      {cities && isOpen && <Cities items={cities} />}
     </li>
   );
-}
+};
+
+export default Accordion(Country);
