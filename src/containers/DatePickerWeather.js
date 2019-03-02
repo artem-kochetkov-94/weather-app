@@ -1,16 +1,19 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { weatherSelectors } from "../redux/ducks/weather";
+import { setDate } from "../redux/ducks/weather/actions";
 import DatePickerWeather from "../components/DatePickerWeather";
-import { citiesSelectors, citiesOperations } from "../redux/ducks/cities";
 
 const mapStateToProps = state => {
+  const countDate = weatherSelectors.getCountDate(state.weather);
+
   return {
-    city: citiesSelectors.getCityById(state.cities, state.cities.active.id)
+    countDate
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators(citiesOperations, dispatch);
+  return bindActionCreators({ setDate }, dispatch);
 };
 
 export default connect(

@@ -1,25 +1,29 @@
 import { connect } from "react-redux";
-import { citiesSelectors } from "../redux/ducks/cities";
+import { weatherSelectors } from "../redux/ducks/weather";
 import Weather from "../components/Weather";
-import kelvinToCelsium from "../utils/kelvin-to-celsius";
+import compose from "../utils/compose";
 
 const mapStateToProps = state => {
-  if (state.cities.active.isFetching && state.cities.active.weather === null) {
+  const isFetching = weatherSelectors.isFetching(state.weather);
+  const weather = weatherSelectors.getWeather(state.weather);
+
+  if (isFetching && weather === null) {
     return {
-      isFetching: citiesSelectors.fetchWeatherStatus(state.cities)
+      isFetching
     };
   }
 
-  if (state.cities.active.weather === null) return {};
+  if (weather === null) return {};
 
-  const weather = citiesSelectors.getActiveCityWeather(state.cities);
-  const temp = citiesSelectors.getWeatherTemp(state.cities);
-  const tempCelsium = kelvinToCelsium(temp);
-  const isFetching = citiesSelectors.fetchWeatherStatus(state.cities);
+  const tempMap = compose(
+    weatherSelectors.getWeatherByDate,
+    weatherSelectors.getTempMap
+  )(state.weather);
 
   return {
     weather,
-    temp: tempCelsium,
+    cityName: weather.city.name,
+    tempMap,
     isFetching
   };
 };

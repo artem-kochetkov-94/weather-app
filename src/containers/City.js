@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import City from "../components/City";
-import { citiesSelectors, citiesOperations } from "../redux/ducks/cities";
+import { citiesSelectors } from "../redux/ducks/cities";
+import { weatherOperations } from "../redux/ducks/weather";
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +11,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators(citiesOperations, dispatch);
+  return bindActionCreators(weatherOperations, dispatch);
 };
 
 class CityContainer extends React.PureComponent {

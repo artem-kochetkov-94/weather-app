@@ -15,7 +15,9 @@ class DatePicker extends React.Component {
       startDate: date
     });
 
-    this.props.onChange(date);
+    if (typeof this.props.onChange === "function") {
+      this.props.onChange(date);
+    }
   }
 
   render() {
@@ -23,6 +25,8 @@ class DatePicker extends React.Component {
       <ReactDatePicker
         selected={this.state.startDate}
         onChange={this.handleChange}
+        minDate={this.props.minDate}
+        maxDate={this.props.maxDate}
       />
     );
   }
