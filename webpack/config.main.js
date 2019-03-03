@@ -3,11 +3,15 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
+const env = process.env.NODE_ENV;
+const isDev = env !== "production";
+
 module.exports = {
   entry: "./src/index.js",
 
   output: {
-    filename: "bundle.js",
+    filename: "bundle.[chunkhash].js",
+    chunkFilename: "[name].[chunkhash].js",
     path: path.resolve(__dirname, "../dist")
   },
 
@@ -22,6 +26,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      isDev: JSON.stringify(isDev)
+    }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html"
@@ -34,6 +41,6 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
+    extensions: ["*", ".js", ".jsx"]
+  }
 };

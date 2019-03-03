@@ -2,7 +2,6 @@ import Header from "../../components/Header";
 import Content from "../../components/Content";
 import Sidebar from "../../components/Sidebar";
 
-import "../../style/main.scss";
 import "./style.scss";
 
 export default class App extends React.PureComponent {
