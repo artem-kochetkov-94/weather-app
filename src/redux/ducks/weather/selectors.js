@@ -14,7 +14,7 @@ export const getWeatherByDate = state => {
     return start <= itemDate && end > itemDate;
   });
 };
-export const getTempMap = weatherByDate =>
+export const getTempArray = weatherByDate =>
   weatherByDate.map(item => ({
     date: item.dt_txt,
     temp: kelvinToCelsium(item.main.temp)

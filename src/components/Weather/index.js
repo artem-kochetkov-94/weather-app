@@ -1,21 +1,25 @@
-import Loading from "../Loading";
+import PropTypes from "prop-types";
 
-const Weather = ({ weather, tempMap, isFetching, cityName }) => {
-  if (isFetching) return <Loading />;
-
-  if (!weather) return null;
-
+const Weather = ({ tempArray, cityName }) => {
   return (
-    <div className="weather">
-      <p>город: {cityName}</p>
-      {tempMap &&
-        tempMap.map(item => (
-          <p key={item.date}>
-            {item.date} : {item.temp}
-          </p>
-        ))}
-    </div>
+    console.log("---render--- WEATHER"),
+    (
+      <div className="weather">
+        <p>город: {cityName}</p>
+        {tempArray &&
+          tempArray.map(item => (
+            <p key={item.date}>
+              {item.date} : {item.temp} по цельсию
+            </p>
+          ))}
+      </div>
+    )
   );
+};
+
+Weather.propTypes = {
+  tempArray: PropTypes.array.isRequired,
+  cityName: PropTypes.string.isRequired
 };
 
 export default Weather;

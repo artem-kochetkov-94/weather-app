@@ -1,5 +1,5 @@
 export default Component =>
-  class Accordion extends React.Component {
+  class Accordion extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = {
@@ -9,6 +9,7 @@ export default Component =>
     }
 
     render() {
+      console.log("---render--- ACCORDEON");
       return (
         <Component
           {...this.props}

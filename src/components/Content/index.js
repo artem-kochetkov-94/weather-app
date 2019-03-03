@@ -1,10 +1,15 @@
 import "./style.scss";
 import Weather from "../../containers/Weather";
 
-export default function MainContent() {
+const MainContent = () => {
   return (
-    <div className="content">
-      <Weather />
-    </div>
+    console.log("---render--- CONTENT"),
+    (
+      <div className="content">
+        <Weather />
+      </div>
+    )
   );
-}
+};
+
+export default MainContent;

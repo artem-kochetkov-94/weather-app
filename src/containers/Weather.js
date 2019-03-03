@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { weatherSelectors } from "../redux/ducks/weather";
 import Weather from "../components/Weather";
+import Loading from "../components/Loading";
 import compose from "../utils/compose";
 
 const mapStateToProps = state => {
@@ -15,20 +16,38 @@ const mapStateToProps = state => {
 
   if (weather === null) return {};
 
-  const tempMap = compose(
+  const tempArray = compose(
     weatherSelectors.getWeatherByDate,
-    weatherSelectors.getTempMap
+    weatherSelectors.getTempArray
   )(state.weather);
 
   return {
     weather,
     cityName: weather.city.name,
-    tempMap,
+    tempArray,
     isFetching
   };
 };
 
+class WeatherContainer extends React.PureComponent {
+  render() {
+    console.log("---render--- WEATHER-CONTAINER");
+    const { isFetching, weather } = this.props;
+
+    if (isFetching) return <Loading />;
+
+    if (!weather) return null;
+
+    return <Weather {...this.props} />;
+  }
+}
+
 export default connect(
   mapStateToProps,
   {}
-)(Weather);
+)(WeatherContainer);
+
+// export default connect(
+//   mapStateToProps,
+//   {}
+// )(Weather);

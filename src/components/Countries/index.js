@@ -1,13 +1,23 @@
 import Country from "../../containers/Country";
+import PropTypes from "prop-types";
 
-export default function Countries({ items }) {
+const Countries = ({ items }) => {
   if (!items) return null;
 
   return (
-    <ul className="countries">
-      {items.map(id => (
-        <Country key={id} id={id} />
-      ))}
-    </ul>
+    console.log("---render--- COUNTRIES"),
+    (
+      <ul className="countries">
+        {items.map(id => (
+          <Country key={id} id={id} />
+        ))}
+      </ul>
+    )
   );
-}
+};
+
+Countries.propTypes = {
+  items: PropTypes.array.isRequired
+};
+
+export default Countries;

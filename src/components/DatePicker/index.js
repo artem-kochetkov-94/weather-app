@@ -1,7 +1,7 @@
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-class DatePicker extends React.Component {
+class DatePicker extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ class DatePicker extends React.Component {
   }
 
   render() {
-    return (
+    return (console.log('---render--- DATEPICKER'),
       <ReactDatePicker
         selected={this.state.startDate}
         onChange={this.handleChange}

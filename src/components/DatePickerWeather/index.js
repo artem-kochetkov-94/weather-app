@@ -1,7 +1,7 @@
 import DatePicker from "../DatePicker";
 import addDays from "../../utils/addDays";
 
-class DatePickerWeather extends React.Component {
+class DatePickerWeather extends React.PureComponent {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -13,7 +13,7 @@ class DatePickerWeather extends React.Component {
   }
 
   render() {
-    return (
+    return (console.log('---render--- DATEPICKER-WEATHER'),
       <DatePicker
         onChange={this.handleChange}
         minDate={new Date()}

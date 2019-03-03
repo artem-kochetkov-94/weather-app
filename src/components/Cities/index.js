@@ -1,13 +1,23 @@
 import City from "../../containers/City";
+import PropTypes from "prop-types";
 
-export default function Cities({ items }) {
+const Cities = ({ items }) => {
   if (!items) return null;
 
   return (
-    <ul className="cities">
-      {items.map(id => (
-        <City key={id} id={id} />
-      ))}
-    </ul>
+    console.log("---render--- CITIES"),
+    (
+      <ul className="cities">
+        {items.map(id => (
+          <City key={id} id={id} />
+        ))}
+      </ul>
+    )
   );
-}
+};
+
+Cities.propTypes = {
+  items: PropTypes.array.isRequired
+};
+
+export default Cities;

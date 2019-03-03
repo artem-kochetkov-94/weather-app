@@ -7,7 +7,7 @@ import "./style.scss";
 
 export default class App extends React.PureComponent {
   render() {
-    return (
+    return (console.log('---render--- APP'),
       <div className="app">
         <Header />
         <div className="app__content">
