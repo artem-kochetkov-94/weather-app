@@ -18,4 +18,11 @@ Country.propTypes = {
   toggleOpen: PropTypes.func.isRequired
 };
 
+Country.defaultProps = {
+  title: "",
+  cities: [],
+  isOpen: false,
+  toggleOpen: x => x
+};
+
 export default Accordion(Country);

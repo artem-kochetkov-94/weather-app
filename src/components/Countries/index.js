@@ -17,4 +17,8 @@ Countries.propTypes = {
   items: PropTypes.array.isRequired
 };
 
+Countries.defaultProps = {
+  items: []
+};
+
 export default Countries;

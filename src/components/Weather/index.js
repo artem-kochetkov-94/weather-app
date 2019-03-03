@@ -19,4 +19,9 @@ Weather.propTypes = {
   cityName: PropTypes.string.isRequired
 };
 
+Weather.defaultProps = {
+  tempArray: [],
+  cityName: ""
+};
+
 export default Weather;

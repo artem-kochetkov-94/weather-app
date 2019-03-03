@@ -13,4 +13,9 @@ City.propTypes = {
   getCityWeather: PropTypes.func.isRequired
 };
 
+City.defaultProps = {
+  title: "",
+  getCityWeather: x => x
+};
+
 export default City;

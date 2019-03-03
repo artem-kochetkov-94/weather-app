@@ -17,4 +17,8 @@ Cities.propTypes = {
   items: PropTypes.array.isRequired
 };
 
+Cities.defaultProps = {
+  items: []
+};
+
 export default Cities;
