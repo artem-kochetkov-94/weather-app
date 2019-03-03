@@ -13,7 +13,7 @@ class DatePickerWeather extends React.PureComponent {
   }
 
   render() {
-    return (console.log('---render--- DATEPICKER-WEATHER'),
+    return (
       <DatePicker
         onChange={this.handleChange}
         minDate={new Date()}

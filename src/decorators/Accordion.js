@@ -9,7 +9,6 @@ export default Component =>
     }
 
     render() {
-      console.log("---render--- ACCORDEON");
       return (
         <Component
           {...this.props}

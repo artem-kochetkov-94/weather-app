@@ -31,7 +31,6 @@ const mapStateToProps = state => {
 
 class WeatherContainer extends React.PureComponent {
   render() {
-    console.log("---render--- WEATHER-CONTAINER");
     const { isFetching, weather } = this.props;
 
     if (isFetching) return <Loading />;
@@ -46,8 +45,3 @@ export default connect(
   mapStateToProps,
   {}
 )(WeatherContainer);
-
-// export default connect(
-//   mapStateToProps,
-//   {}
-// )(Weather);

@@ -21,7 +21,7 @@ class DatePicker extends React.PureComponent {
   }
 
   render() {
-    return (console.log('---render--- DATEPICKER'),
+    return (
       <ReactDatePicker
         selected={this.state.startDate}
         onChange={this.handleChange}

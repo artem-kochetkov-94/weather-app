@@ -5,14 +5,11 @@ const Cities = ({ items }) => {
   if (!items) return null;
 
   return (
-    console.log("---render--- CITIES"),
-    (
-      <ul className="cities">
-        {items.map(id => (
-          <City key={id} id={id} />
-        ))}
-      </ul>
-    )
+    <ul className="cities">
+      {items.map(id => (
+        <City key={id} id={id} />
+      ))}
+    </ul>
   );
 };
 

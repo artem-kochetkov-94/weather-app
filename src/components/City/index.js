@@ -2,12 +2,9 @@ import PropTypes from "prop-types";
 
 const City = ({ title, getCityWeather }) => {
   return (
-    console.log("---render--- CITY"),
-    (
-      <li className="city" onClick={getCityWeather}>
-        {title}
-      </li>
-    )
+    <li className="city" onClick={getCityWeather}>
+      {title}
+    </li>
   );
 };
 

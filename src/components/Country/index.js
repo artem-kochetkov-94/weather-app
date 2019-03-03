@@ -4,13 +4,10 @@ import PropTypes from "prop-types";
 
 const Country = ({ title, cities, isOpen, toggleOpen }) => {
   return (
-    console.log("---render--- COUNTRY"),
-    (
-      <li className="country">
-        <span onClick={toggleOpen}>{title}</span>
-        {cities && isOpen && <Cities items={cities} />}
-      </li>
-    )
+    <li className="country">
+      <span onClick={toggleOpen}>{title}</span>
+      {cities && isOpen && <Cities items={cities} />}
+    </li>
   );
 };
 

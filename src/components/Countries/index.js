@@ -5,14 +5,11 @@ const Countries = ({ items }) => {
   if (!items) return null;
 
   return (
-    console.log("---render--- COUNTRIES"),
-    (
-      <ul className="countries">
-        {items.map(id => (
-          <Country key={id} id={id} />
-        ))}
-      </ul>
-    )
+    <ul className="countries">
+      {items.map(id => (
+        <Country key={id} id={id} />
+      ))}
+    </ul>
   );
 };
 
