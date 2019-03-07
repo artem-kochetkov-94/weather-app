@@ -1,9 +1,12 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./sagas";
 import rootReducer from "./index";
-import reduxThunk from "redux-thunk";
 import reduxLogger from "redux-logger";
 
-const middlewares = [reduxThunk];
+const sagaMiddleware = createSagaMiddleware();
+
+const middlewares = [sagaMiddleware];
 
 if (isDev) middlewares.push(reduxLogger);
 
@@ -19,5 +22,7 @@ const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 const store = isDev
   ? createStore(rootReducer, enhancer)
   : createStore(rootReducer, applyMiddleware(...middlewares));
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
