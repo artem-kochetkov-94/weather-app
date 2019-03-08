@@ -15,10 +15,21 @@ const mapDispatchToProps = dispatch => {
 };
 
 class CityContainer extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.getCityWeather = this.getCityWeather.bind(this);
+  }
+
   render() {
-    const { cities, id, getCityWeather } = this.props;
+    const { cities, id } = this.props;
     const city = citiesSelectors.getCityById(cities, id);
-    return <City {...city} getCityWeather={() => getCityWeather(id)} />;
+    return (
+      <City {...city} getCityWeather={this.getCityWeather.bind(this, id)} />
+    );
+  }
+
+  getCityWeather(id) {
+    this.props.getCityWeather(id);
   }
 }
 
