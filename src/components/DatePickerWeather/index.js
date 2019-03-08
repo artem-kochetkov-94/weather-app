@@ -17,7 +17,7 @@ class DatePickerWeather extends React.PureComponent {
       <DatePicker
         onChange={this.handleChange}
         minDate={new Date()}
-        maxDate={addDays(new Date(), 5)}
+        maxDate={addDays(new Date(), 4)}
       />
     );
   }

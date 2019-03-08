@@ -2,31 +2,23 @@ import { combineReducers } from "redux";
 import * as types from "./types";
 
 const initialState = {
-  allIds: ["2950159", "524901", "515003", "4119617", "551487", "1496153"],
+  allIds: ["519188", "529334", "708546", "703363"],
   byIds: {
-    "2950159": {
-      id: "2950159",
-      title: "Berlin"
+    "519188": {
+      id: "519188",
+      title: "Novinki"
     },
-    "524901": {
-      id: "524901",
-      title: "Moscow"
+    "529334": {
+      id: "529334",
+      title: "Mar’ina Roshcha"
     },
-    "515003": {
-      id: "515003",
-      title: "Orenburg"
+    "708546": {
+      id: "708546",
+      title: "Holubynka"
     },
-    "4119617": {
-      id: "4119617",
-      title: "London"
-    },
-    "551487": {
-      id: "551487",
-      title: "Kazan"
-    },
-    "1496153": {
-      id: "1496153",
-      title: "Omsk"
+    "703363": {
+      id: "703363",
+      title: "Laspi"
     }
   }
 };

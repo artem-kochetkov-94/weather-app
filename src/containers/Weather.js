@@ -24,6 +24,7 @@ const mapStateToProps = state => {
   return {
     weather,
     cityName: weather.city.name,
+    countryName: weather.city.country,
     tempArray,
     isFetching
   };

@@ -5,18 +5,13 @@ const initialState = {
   byIds: {
     "0": {
       id: "0",
-      title: "country 0",
-      cities: ["2950159", "524901"]
+      title: "RU",
+      cities: ["519188", "529334"]
     },
     "1": {
       id: "1",
-      title: "country 1",
-      cities: ["515003", "4119617"]
-    },
-    "2": {
-      id: "2",
-      title: "country 2",
-      cities: ["551487", "1496153"]
+      title: "UA",
+      cities: ["708546", "703363"]
     }
   }
 };
